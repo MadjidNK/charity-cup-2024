@@ -6,14 +6,27 @@ body {
 }
 
 .background {
-    background: url('Affiche Charity Cup 2024.png') no-repeat center center fixed;
-    background-size: cover;
+    position: relative;
     padding: 20px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow: hidden; /* Assurez-vous que le pseudo-élément ne dépasse pas */
+}
+
+.background::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('Affiche Charity Cup 2024.png') no-repeat center center fixed;
+    background-size: cover;
+    opacity: 0.5; /* Ajustez l'opacité ici */
+    z-index: -1;
 }
 
 .content {
@@ -22,7 +35,7 @@ body {
     background-color: rgba(255, 255, 255, 0.8);
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h1, h2, h3 {
